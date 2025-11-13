@@ -3,6 +3,8 @@ echo $0 $*
 
 export PATH="$PATH:/mnt/SDCARD/System/bin"
 
+cd "$(dirname "$0")"
+cd /mnt/SDCARD/Apps/Activities/
 skins="$(jq -r '.["theme"]' /mnt/UDISK/system.json)"
 backgrounds="$(jq -r '.["BACKGROUNDS"]' /mnt/SDCARD/System/etc/crossmix.json)"
 sed -iE 's/^skins_theme=.*$/skins_theme='"${skins#*Themes/}"'
